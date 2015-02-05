@@ -40,7 +40,7 @@ fi
 
 echo "${cc_yellow} Configuring color-ssh! ${cc_normal}"
 if [ $CHECK_FN -eq 0 ]; then
-  cat << EOF >> ~/.bash_profile	
+  cat << 'EOF' >> ~/.bash_profile	
 
 alias ssh="tabc ${THEME_ARGS[0]}; get_ssh "
 function get_ssh(){
@@ -55,9 +55,14 @@ function get_ssh(){
 EOF
 
   cat <<- EOF >> ~/.bashrc
-	
+
+export DEFAULT_THEME=${THEME_ARGS[1]}
+EOF
+
+  cat <<- 'EOF' >> ~/.bashrc
+
 function tabc() {
-NAME=$1; if [ -z "$NAME" ]; then NAME="${THEME_ARGS[1]}"; fi
+NAME=$1; if [ -z "$NAME" ]; then NAME="$DEFAULT_THEME"; fi
 osascript -e "tell application \"Terminal\" to set current settings of front window to settings set \"$NAME\""
 }
 
