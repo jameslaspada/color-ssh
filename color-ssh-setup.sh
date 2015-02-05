@@ -1,7 +1,7 @@
 #!/bin/bash
 #This script will setup the color-ssh command
 
-THEME=$1
+THEME_ARGS=( $1 $2)
 CHECK_SC=$(grep "\-f ~/.bashrc" ~/.bash_profile | wc -l)
 CHECK_FN=$(grep "get_ssh()" ~/.bash_profile | wc -l)
 # Escape code
@@ -14,7 +14,7 @@ cc_yellow="${esc}[0;33m"
 cc_blue="${esc}[0;34m"
 cc_normal=`echo -en "${esc}[m\017"`
 
-if [ -z $THEME ]; then
+if [ ${#THEME_ARGS[@]} -eq 0 ]; then
 	echo "${cc_red} Must execute the setup script with the theme name you want color-ssh to use. ${cc_normal}"
 	echo "${cc_green} (i.e. sh color-ssh-setup.sh [THEME]) ${cc_normal}"
 	exit
@@ -42,7 +42,7 @@ echo "${cc_yellow} Configuring color-ssh! ${cc_normal}"
 if [ $CHECK_FN -eq 0 ]; then
   cat << EOF >> ~/.bash_profile	
 
-alias cssh="tabc $THEME; get_ssh "
+alias cssh="tabc ${THEME_ARGS[0]}; get_ssh "
 function get_ssh(){
   for i in "$@"; do
     args+=("$i")
@@ -57,7 +57,7 @@ EOF
   cat <<- EOF >> ~/.bashrc
 	
 function tabc() {
-NAME=$1; if [ -z "$NAME" ]; then NAME="Homebrew"; fi
+NAME=$1; if [ -z "$NAME" ]; then NAME="${THEME_ARGS[1]}"; fi
 osascript -e "tell application \"Terminal\" to set current settings of front window to settings set \"$NAME\""
 }
 
