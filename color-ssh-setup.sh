@@ -1,7 +1,7 @@
 #!/bin/bash
 #This script will setup the color-ssh command
 
-THEME_ARGS=( $1 $2)
+THEME_ARGS=( $1 $2 )
 CHECK_SC=$(grep "\-f ~/.bashrc" ~/.bash_profile | wc -l)
 CHECK_FN=$(grep "get_ssh()" ~/.bash_profile | wc -l)
 # Escape code
@@ -41,7 +41,7 @@ fi
 echo "${cc_yellow} Configuring color-ssh! ${cc_normal}"
 if [ $CHECK_FN -eq 0 ]; then
 
-  cat <<- EOF >> ~/.bash_profile
+  cat << EOF >> ~/.bash_profile
 alias ssh="tabc ${THEME_ARGS[0]}; get_ssh "
 EOF
 
