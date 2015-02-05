@@ -28,6 +28,8 @@ the prerequisite steps. $DEFAULT_THEME should be the name of the theme you want 
 
 Usage 
 ------
-Once you have successfully completed the setup script. You can start using color-ssh right away. color-ssh is setup to trigger off of the already existing ssh command. 
+Once you have successfully completed the setup script, you can start using color-ssh right away. To open up an ssh connection with color-ssh just replace ssh with cssh.
+
+	$ cssh USER@SOMESERVER 
 
 **Go ahead and give it a try!**

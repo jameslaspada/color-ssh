@@ -42,7 +42,7 @@ echo "${cc_yellow} Configuring color-ssh! ${cc_normal}"
 if [ $CHECK_FN -eq 0 ]; then
 
   cat << EOF >> ~/.bash_profile
-alias ssh="tabc ${THEME_ARGS[0]}; get_ssh "
+alias cssh="tabc ${THEME_ARGS[0]}; get_ssh "
 EOF
 
   cat << 'EOF' >> ~/.bash_profile	
