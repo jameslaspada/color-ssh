@@ -20,10 +20,14 @@ You must determine a theme profile to use with color-ssh command.
 	Commit this to memory since this will be needed for configuration script ($SSH_THEME).
 
 Run Setup 
--------------
+----------
 Execute the following curl command to configure color-ssh on your machine. Replace the argument variable $SSH_THEME with the theme name you picked under
 the prerequisite steps. $DEFAULT_THEME should be the name of the theme you want to always use when you leave the ssh session. 
 
 	$ curl -s https://raw.githubusercontent.com/jameslaspada/color-ssh/master/color-ssh-setup.sh | bash /dev/stdin $SSH_THEME $DEFAULT_THEME
 
+Usage 
+------
+Once you have successfully completed the setup script. You can start using color-ssh right away. color-ssh is setup to trigger off of the already existing ssh command. 
 
+**Go ahead and give it a try!**

@@ -42,7 +42,7 @@ echo "${cc_yellow} Configuring color-ssh! ${cc_normal}"
 if [ $CHECK_FN -eq 0 ]; then
   cat << EOF >> ~/.bash_profile	
 
-alias cssh="tabc ${THEME_ARGS[0]}; get_ssh "
+alias ssh="tabc ${THEME_ARGS[0]}; get_ssh "
 function get_ssh(){
   for i in "$@"; do
     args+=("$i")
@@ -64,6 +64,7 @@ osascript -e "tell application \"Terminal\" to set current settings of front win
 EOF
 
   if [ $? -eq 0 ]; then
+    source ~/.bash_profile
     echo "${cc_green} color-ssh configuration has completed successfully! ${cc_normal}"
   else
     echo "${cc_red} An Error has occured during the color-ssh setup! ${cc_normal}"
