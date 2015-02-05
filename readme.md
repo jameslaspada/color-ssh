@@ -13,7 +13,7 @@ You must determine a theme profile to use with color-ssh command.
 	Commit this to memory since this will be needed for configuration script execution ($SSH_THEME).
 
 
-**_To choose an already existing theme profile_**
+**_To create a new theme profile_**
 
 	Go to Terminal -> Preferences. Click the '+' button under the Profiles selection box.
 	Create a name for this profile, and select the properties you wish to use for this profile.  
